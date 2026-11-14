@@ -134,12 +134,12 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .hint-line{display:flex;align-items:center;gap:.6em;font-size:.85rem;color:rgba(255,255,255,.9);margin-left:auto;background:rgba(255,255,255,.14);padding:.55em 1em;border-radius:999px;border:1px solid rgba(255,255,255,.25)}
   transition:transform .35s var(--ease),box-shadow .35s,background .35s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(8,12,50,.14)}
 
-.zoom-backdrop{position:absolute;inset:0;background:rgba(6,9,36,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .6s var(--ease);z-index:20}
+.zoom-backdrop{position:absolute;inset:0;background:rgba(6,9,36,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .35s var(--ease);z-index:20}
 .zoom-backdrop.on{opacity:1;pointer-events:auto}
 .zoom-card{position:absolute;z-index:21;background:#fff;color:#0b0d16;border-radius:16px;overflow:hidden;opacity:0;pointer-events:none;
-  transition:left .75s var(--ease-io),top .75s var(--ease-io),width .75s var(--ease-io),height .75s var(--ease-io),border-radius .75s var(--ease-io),opacity .3s;box-shadow:0 40px 120px rgba(4,6,30,.5)}
+  transition:left .45s var(--ease-io),top .45s var(--ease-io),width .45s var(--ease-io),height .45s var(--ease-io),border-radius .45s var(--ease-io),opacity .2s;box-shadow:0 40px 120px rgba(4,6,30,.5)}
 .zoom-card.on{opacity:1;pointer-events:auto}
-.zc-inner{position:absolute;inset:0;padding:clamp(22px,3.2vw,56px);display:flex;flex-direction:column;opacity:0;transform:translateY(16px);transition:opacity .45s .35s,transform .6s .35s var(--ease);overflow:auto}
+.zc-inner{position:absolute;inset:0;padding:clamp(22px,3.2vw,56px);display:flex;flex-direction:column;opacity:0;transform:translateY(16px);transition:opacity .3s .18s,transform .4s .18s var(--ease);overflow:auto}
 .zoom-card.full .zc-inner{opacity:1;transform:none}
 .zc-bar{position:absolute;left:0;top:0;right:0;height:8px}
 .zc-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:.6em;padding:.45em 1em;border-radius:99px;color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
@@ -209,7 +209,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .s-product[data-sel="1"] .prod-title .grad-text{background:none;color:#fff}
 .prod-stage{position:absolute;inset:0;display:flex}
 .col{--c:var(--yellow);--H:min(40vh,31vw);position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18vh 0 11vh;cursor:pointer;overflow:hidden;
-  transition:flex-grow 1s var(--ease-io),opacity .6s .1s,color .5s;color:var(--ink)}
+  transition:flex-grow .65s var(--ease-io),opacity .6s .1s,color .5s;color:var(--ink)}
 .col+.col{box-shadow:inset 1px 0 0 rgba(31,44,110,.07)}
 .col-bg{position:absolute;inset:0;background:var(--c);opacity:0;transition:opacity .55s}
 .prod-stage:not(.has-sel) .col:hover{flex-grow:1.55;color:#fff}
@@ -227,25 +227,25 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .bigword{position:absolute;z-index:0;left:50%;top:54%;transform:translate(-50%,-50%) scale(.88);font-family:var(--display);font-weight:800;font-size:var(--bw,18vw);line-height:.8;letter-spacing:-.055em;color:#fff;opacity:0;white-space:nowrap;pointer-events:none;transition:opacity 1s .35s,transform 1.4s .2s var(--ease)}
 .col.sel .bigword{opacity:.2;transform:translate(-50%,-50%) scale(1)}
 
-.item{--k:1;position:relative;z-index:2;width:calc(var(--H) * .72);height:var(--H);transform:scale(var(--k));transition:transform 1s var(--ease-io)}
+.item{--k:1;position:relative;z-index:2;width:calc(var(--H) * .72);height:var(--H);transform:scale(var(--k));transition:transform .65s var(--ease-io)}
 .prod-stage:not(.has-sel) .col:hover .item{--k:1.1}
 .col.sel .item{--k:1.3}
-.box{position:absolute;inset:0;z-index:2;perspective:1500px;filter:drop-shadow(0 26px 32px rgba(10,14,50,.3));transition:transform 1.1s var(--ease-io),opacity .8s}
+.box{position:absolute;inset:0;z-index:2;perspective:1500px;filter:drop-shadow(0 26px 32px rgba(10,14,50,.3));transition:transform .7s var(--ease-io),opacity .5s}
 .box img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;border-radius:5px}
 .box-body{clip-path:inset(40% 0 0 0)}
-.box-flap{clip-path:inset(0 0 60% 0);transform-origin:50% 40%;backface-visibility:hidden;transition:transform 1.05s cubic-bezier(.45,0,.2,1),opacity .3s .72s}
+.box-flap{clip-path:inset(0 0 60% 0);transform-origin:50% 40%;backface-visibility:hidden;transition:transform .65s cubic-bezier(.45,0,.2,1),opacity .25s .42s}
 .box::after{content:"";position:absolute;left:0;right:0;top:40%;height:8%;background:linear-gradient(rgba(0,0,0,.6),transparent);opacity:0;transition:opacity .6s .35s;z-index:3;pointer-events:none}
 .col.open .box-flap{transform:rotateX(118deg);opacity:0}
 .col.open .box::after{opacity:1}
 .pouch{position:absolute;z-index:1;left:50%;top:50%;width:calc(var(--H) * .5);height:calc(var(--H) * .9);object-fit:contain;
-  transform:translate(-50%,calc(-50% + var(--py,2%))) scale(var(--ps,1));transition:transform 1.2s cubic-bezier(.45,0,.15,1);filter:drop-shadow(0 22px 28px rgba(8,12,50,.35))}
+  transform:translate(-50%,calc(-50% + var(--py,2%))) scale(var(--ps,1));transition:transform .75s cubic-bezier(.45,0,.15,1);filter:drop-shadow(0 22px 28px rgba(8,12,50,.35))}
 .col.out .pouch{--py:-33%}
 .col.solo .pouch{--py:0%;--ps:1.15;z-index:4;cursor:pointer}
 .col.solo .box{transform:translateY(55%) scale(.8);opacity:0;pointer-events:none}
 .col.solo .item::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:90%;aspect-ratio:1;margin:-45% 0 0 -45%;border-radius:50%;border:2px solid rgba(255,255,255,.55);animation:ring 2.4s ease-out infinite;pointer-events:none}
 @keyframes ring{from{transform:scale(.7);opacity:.9}to{transform:scale(1.9);opacity:0}}
 .col.solo .pouch:hover{--ps:1.21}
-.col.dive .pouch{--py:0%;--ps:11;transition:transform 1.7s cubic-bezier(.75,0,.9,.55)}
+.col.dive .pouch{--py:0%;--ps:11;transition:transform 1s cubic-bezier(.75,0,.9,.55)}
 .col.dive .item::before{display:none}
 .col.dive .bigword{opacity:0;transition:opacity .5s}
 
@@ -254,11 +254,11 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .price b{font-family:var(--display);font-size:clamp(1.6rem,2.5vw,2.8rem);letter-spacing:-.03em;line-height:1;color:var(--c)}
 .price span{font-size:clamp(.78rem,1vw,1rem);line-height:1.25;color:#3b4166;text-align:left}
 .price span i{display:block;font-style:normal;font-weight:700;color:var(--ink)}
-.col.open:not(.solo) .price-box{opacity:1;transform:none;transition-delay:.9s}
+.col.open:not(.solo) .price-box{opacity:1;transform:none;transition-delay:.5s}
 .col.solo:not(.dive) .price-one{opacity:1;transform:none;transition-delay:.5s}
 .col.nuit .price b{color:#27378a}
 .col .click-hint{position:absolute;z-index:10;left:0;right:0;top:15.2vh;text-align:center;font-size:.8rem;font-weight:600;color:#fff;opacity:0;transition:opacity .5s;pointer-events:none;letter-spacing:.02em}
-.col.solo:not(.dive) .click-hint{opacity:.95;transition-delay:1.2s;animation:hintBob 2s ease-in-out infinite}
+.col.solo:not(.dive) .click-hint{opacity:.95;transition-delay:.7s;animation:hintBob 2s ease-in-out infinite}
 @keyframes hintBob{50%{transform:translateY(5px)}}
 
 .back-btn{position:absolute;z-index:30;top:9.4vh;left:2vw;display:inline-flex;align-items:center;gap:.6em;padding:.6em 1.1em .6em .8em;border-radius:99px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;font-size:.85rem;font-weight:600;opacity:0;pointer-events:none;transform:translateX(-14px);transition:opacity .5s,transform .5s var(--ease),background .25s}
@@ -266,7 +266,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .back-btn:hover{background:rgba(255,255,255,.32)}
 
 /* ---------- LABO (à l'intérieur de la gourde) ---------- */
-.lab{position:absolute;inset:0;z-index:25;background:#03050d;overflow:hidden;opacity:0;pointer-events:none;transition:opacity 1.1s;--ac:#7aa2ff}
+.lab{position:absolute;inset:0;z-index:25;background:#03050d;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .6s;--ac:#7aa2ff}
 .lab.on{opacity:1;pointer-events:auto}
 .lab-bg{position:absolute;inset:0;background:
   radial-gradient(60% 55% at 50% 45%,color-mix(in srgb,var(--ac) 22%,transparent),transparent 70%),
@@ -291,7 +291,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .nut::before,.nut::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--ac);opacity:.8}
 .nut::before{left:12px;top:12px;border-right:0;border-bottom:0}
 .nut::after{right:12px;bottom:12px;border-left:0;border-top:0}
-.lab.show .nut{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(.5s + var(--i) * .22s)}
+.lab.show .nut{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .7s var(--ease);transition-delay:calc(.3s + var(--i) * .12s)}
 .nut-no{font-family:var(--mono);font-size:.72rem;color:var(--ac);letter-spacing:.14em}
 .nut-mol{height:clamp(120px,25vh,280px);margin:1.2vh 0 1.4vh;display:block;animation:floaty 7s ease-in-out infinite;animation-delay:calc(var(--i) * -2s)}
 @keyframes floaty{50%{transform:translateY(-8px)}}
@@ -317,7 +317,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .nut-chem i{display:block;font-style:normal;color:rgba(255,255,255,.55)}
 .nut-role{font-size:clamp(.82rem,1.1vw,1.15rem);line-height:1.45;color:rgba(255,255,255,.82);margin-top:.9em;padding-top:.9em;border-top:1px solid rgba(255,255,255,.12)}
 .lab-foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.04em}
-.lab-head,.lab-foot{opacity:0;transform:translateY(-10px);transition:opacity .8s .3s,transform .8s .3s var(--ease)}
+.lab-head,.lab-foot{opacity:0;transform:translateY(-10px);transition:opacity .5s .2s,transform .5s .2s var(--ease)}
 .lab.show .lab-head,.lab.show .lab-foot{opacity:1;transform:none}
 
 /* ---------- GRAND FORMAT ---------- */
@@ -911,7 +911,6 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     ['cart', 'Grandes surfaces', 'Hypers et supermarchés (GSA), rayon compotes', '#d04a86'],
     ['car', 'Drive', 'Click & collect des grandes enseignes', '#eca21a'],
     ['vending', 'Distributeurs automatiques', 'Campus, gares, entreprises, salles de sport', '#2f8f4e'],
-    ['box', 'Amazon', 'Marketplace et livraison à domicile', '#27378a'],
     ['globe', 'E-commerce', 'Site Pom’Potes Moments, abonnement possible', '#d04a86'],
     ['leaf', 'Aroma-Zone', 'Site et boutiques du partenaire', '#2f8f4e'],
     ['store', 'Commerces de proximité', 'Supérettes, épiceries, magasins de campus', '#eca21a'],
@@ -1105,14 +1104,14 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     requestAnimationFrame(() => {
       setRect(zCard, zoomTarget());
       zCard.style.borderRadius = '30px';
-      setTimeout(() => zCard.classList.add('full'), 120);
+      setTimeout(() => zCard.classList.add('full'), 60);
     });
   }
   function stepZoom(v) {
     zoomIdx = (zoomIdx + v + order.length) % order.length;
     const id = order[zoomIdx];
     zCard.classList.remove('full');
-    setTimeout(() => { fillZoom(id); requestAnimationFrame(() => zCard.classList.add('full')); }, 260);
+    setTimeout(() => { fillZoom(id); requestAnimationFrame(() => zCard.classList.add('full')); }, 150);
   }
   function closeZoom(instant) {
     if (!zoomOpen) return;
@@ -1123,7 +1122,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     if (instant) { zCard.classList.remove('on'); return; }
     setRect(zCard, rectIn(cell));
     zCard.style.borderRadius = '10px';
-    setTimeout(() => { if (!zoomOpen) zCard.classList.remove('on'); }, 700);
+    setTimeout(() => { if (!zoomOpen) zCard.classList.remove('on'); }, 450);
   }
   $('#swotTable').addEventListener('click', e => { const c = e.target.closest('.sw-item'); if (c) openZoom(c.dataset.id); });
   zBack.addEventListener('click', () => closeZoom());
@@ -1186,9 +1185,9 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     c.classList.add('sel');
     setSelClass(true);
     backBtn.classList.add('on'); setBackLabel();
-    later(() => c.classList.add('open'), 1000);          // l'opercule se lève
-    later(() => c.classList.add('out'), 2100);           // la gourde sort de la boîte
-    later(() => { c.classList.add('solo'); prod.state = 'pouch'; setBackLabel(); }, 3400); // zoom sur la gourde
+    later(() => c.classList.add('open'), 450);          // l'opercule se lève
+    later(() => c.classList.add('out'), 1050);           // la gourde sort de la boîte
+    later(() => { c.classList.add('solo'); prod.state = 'pouch'; setBackLabel(); }, 1900); // zoom sur la gourde
   }
 
   function enterLab() {
@@ -1198,8 +1197,8 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     const c = colEl(prod.key);
     c.classList.add('dive');
     buildLab(prod.key);
-    later(() => { lab.classList.add('on'); body.classList.add('lab-open'); }, 950);
-    later(() => { lab.classList.add('show'); prod.state = 'lab'; setBackLabel(); }, 1700);
+    later(() => { lab.classList.add('on'); body.classList.add('lab-open'); }, 550);
+    later(() => { lab.classList.add('show'); prod.state = 'lab'; setBackLabel(); }, 1050);
   }
 
   function buildLab(key) {
@@ -1241,8 +1240,8 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     clearTimers();
     prod.state = 'diving';
     lab.classList.remove('show');
-    later(() => { lab.classList.remove('on'); body.classList.remove('lab-open'); colEl(prod.key).classList.remove('dive'); }, 500);
-    later(() => { prod.state = 'pouch'; setBackLabel(); lab.innerHTML = ''; }, 2300);
+    later(() => { lab.classList.remove('on'); body.classList.remove('lab-open'); colEl(prod.key).classList.remove('dive'); }, 300);
+    later(() => { prod.state = 'pouch'; setBackLabel(); lab.innerHTML = ''; }, 1300);
   }
 
   function resetProduct(instant) {
@@ -1259,10 +1258,10 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     if (instant) { fin(); return; }
     prod.state = 'closing';
     c.classList.remove('dive', 'solo');
-    later(() => c.classList.remove('out'), 450);
-    later(() => c.classList.remove('open'), 950);
-    later(() => { stage.classList.remove('has-sel'); c.classList.remove('sel'); setSelClass(false); backBtn.classList.remove('on'); }, 1500);
-    later(fin, 2600);
+    later(() => c.classList.remove('out'), 250);
+    later(() => c.classList.remove('open'), 550);
+    later(() => { stage.classList.remove('has-sel'); c.classList.remove('sel'); setSelClass(false); backBtn.classList.remove('on'); }, 900);
+    later(fin, 1500);
   }
 
   function prodBack() {
