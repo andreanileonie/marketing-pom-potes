@@ -155,7 +155,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .fig span{font-size:clamp(.78rem,1.05vw,1.1rem);color:#3b4166}
 .callout{margin-top:1.2vh;border-left:6px solid #b3262e;background:#fdecec;border-radius:0 16px 16px 0;padding:1.3vh 1.5vw;font-size:clamp(.9rem,1.25vw,1.3rem);line-height:1.4}
 .callout b{color:#b3262e;display:block;font-size:.8em;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.3em}
-.zc-nav{position:absolute;top:clamp(18px,2vw,30px);right:clamp(18px,2vw,30px);display:flex;gap:.5em;align-items:center}
+.zc-nav{z-index:6;position:absolute;top:clamp(18px,2vw,30px);right:clamp(18px,2vw,30px);display:flex;gap:.5em;align-items:center}
 .zc-nav button{width:2.6em;height:2.6em;border-radius:50%;display:grid;place-items:center;background:#eef0f8;color:var(--navy);transition:transform .25s,background .25s}
 .zc-nav button:hover{transform:scale(1.1);background:#dfe3f3}
 .zc-nav .cnt{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-right:.3em}
@@ -391,6 +391,9 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 .zc-side{justify-content:flex-start;gap:2vh}
+
+.lab:not(.on){transition-duration:.3s}
+.col:not(.dive) .pouch{transition-duration:.55s}
 </style>
 </head>
 <body data-bg="intro">
@@ -1126,6 +1129,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
   }
   $('#swotTable').addEventListener('click', e => { const c = e.target.closest('.sw-item'); if (c) openZoom(c.dataset.id); });
   zBack.addEventListener('click', () => closeZoom());
+  swotSlide.addEventListener('click', e => { if (zoomOpen && !e.target.closest('#zCard, .sw-item')) closeZoom(); });
 
   /* ------------------------------------------------------------------
      SLIDE JOURNÉE
@@ -1239,9 +1243,9 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
   function leaveLab() {
     clearTimers();
     prod.state = 'diving';
-    lab.classList.remove('show');
-    later(() => { lab.classList.remove('on'); body.classList.remove('lab-open'); colEl(prod.key).classList.remove('dive'); }, 300);
-    later(() => { prod.state = 'pouch'; setBackLabel(); lab.innerHTML = ''; }, 1300);
+    lab.classList.remove('show', 'on'); body.classList.remove('lab-open');
+    colEl(prod.key).classList.remove('dive');
+    later(() => { prod.state = 'pouch'; setBackLabel(); lab.innerHTML = ''; }, 600);
   }
 
   function resetProduct(instant) {
@@ -1265,7 +1269,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
   }
 
   function prodBack() {
-    if (prod.state === 'lab') leaveLab();
+    if (prod.state === 'lab' || prod.state === 'diving') leaveLab();
     else if (prod.state === 'pouch') resetProduct();
     else if (prod.state === 'box') resetProduct();
   }
