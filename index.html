@@ -623,6 +623,22 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
 .fc-pouches img{margin:0 -4.6%}
 .fc-pouches img:nth-child(1){margin-right:-5%}
 .fc-pouches img:nth-child(4){margin-left:-5%}
+
+/* distribution en colonnes par circuit */
+.dist-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;width:min(1240px,92vw);margin-top:4.5vh}
+.dist-col{display:flex;flex-direction:column;gap:1.6vh}
+.dist-head.circ{display:flex;flex-direction:column;align-items:center;gap:.15em;margin:0;align-self:stretch;border-radius:18px;padding:.9em 1em;color:#fff}
+.dist-head b{font-family:var(--display);font-size:clamp(1.15rem,1.8vw,2rem);letter-spacing:-.02em;text-transform:none}
+.dist-head span{font-size:clamp(.72rem,.95vw,1rem);font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.92}
+.dist-col .tile-card{flex:1;min-height:0;padding:2.4vh 1.3vw}
+.dist-col .tile-card h3{font-size:clamp(1rem,1.5vw,1.6rem)}
+.dist-col .tile-card p{font-size:clamp(.78rem,1vw,1.05rem)}
+/* prix : 3 lignes */
+.price-card img{height:13vh}
+.pc-rows{gap:.7vh}
+.pc-rows div{padding:.42em .85em}
+.pc-rows span{font-size:clamp(.72rem,.92vw,.98rem)}
+.pc-rows b{font-size:clamp(1.15rem,1.85vw,2.1rem)}
 </style>
 </head>
 <body data-bg="intro">
@@ -745,7 +761,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
   <section class="slide s-day" data-bg="mesh" data-title="Notre journée">
     <div class="center wide">
       <p class="kicker light rv">Notre journée en 4 temps</p>
-      <h2 class="h2 rv">Une journée d’étudiant, quatre besoins : <span>chaque moment appelle un bénéfice précis</span></h2>
+      <h2 class="h2 rv">Une journée type, quatre besoins : <span>chaque moment appelle un bénéfice précis</span></h2>
       <div class="daybar rv"><i></i><span class="sun" id="daySun"></span></div>
       <div class="day-grid" id="dayGrid"></div>
     </div>
@@ -779,7 +795,6 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
       <p class="kicker light rv">Politique de prix</p>
       <h2 class="h2 rv">Un prix unique pour les quatre moments : <span>1,10&nbsp;€ la gourde</span>, simple à retenir et accessible</h2>
       <div class="price-grid" id="priceGrid"></div>
-      <p class="sw-take rv"><svg class="ic"><use href="#i-arrow"/></svg>Boîte de 4 gourdes : 4 × 1,10&nbsp;€ = 4,40&nbsp;€, quelle que soit la gourde.</p>
     </div>
   </section>
 
@@ -811,9 +826,8 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
   <section class="slide s-dist" data-bg="mesh" data-title="Distribution">
     <div class="center wide top">
       <p class="kicker light rv">Où est-ce qu’on se vend&nbsp;?</p>
-      <h2 class="h2 rv">Être là où les jeunes passent : <span>sept canaux, du rayon au campus</span></h2>
-      <div class="tiles four" id="distGrid"></div>
-      <p class="legend rv"><b>Direct</b> sans intermédiaire · <b>Court</b> un intermédiaire · <b>Long</b> grossiste + détaillant · <b>Long intégré</b> enseigne avec sa propre centrale d’achat</p>
+      <h2 class="h2 rv">Être là où les jeunes passent : <span>six canaux, du rayon au campus</span></h2>
+      <div class="dist-cols" id="distGrid"></div>
     </div>
   </section>
 
@@ -858,7 +872,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
         <div class="fc-box rv" style="--c:#d04a86"><h3><svg class="ic"><use href="#i-target"/></svg>La cible</h3>
           <ul><li><b>18-23 ans</b> : rapide, léger, pratique</li><li>Des bienfaits à <b>chaque moment</b></li></ul></div>
         <div class="fc-box rv" style="--c:#eca21a"><h3><svg class="ic"><use href="#i-sun"/></svg>Le produit</h3>
-          <ul><li><b>4 gourdes</b> fonctionnelles de 130 g</li><li>Sans sucres ajoutés · pack de 12</li></ul></div>
+          <ul><li><b>4 gourdes</b> fonctionnelles de 130 g</li><li>Sans sucres ajoutés · <b>pack de 12 : 12,50 €</b></li></ul></div>
       </div>
       <div class="fc-mid">
         <div class="fc-glow"></div>
@@ -873,7 +887,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
       </div>
       <div class="fc-col fc-r">
         <div class="fc-box rv" style="--c:#27378a"><h3><svg class="ic"><use href="#i-cart"/></svg>Distribution</h3>
-          <ul><li><b>7 canaux</b> : grandes surfaces, drive, distributeurs automatiques</li><li>E-commerce, Aroma-Zone, proximité, restauration</li></ul></div>
+          <ul><li><b>6 canaux</b> : grandes surfaces, drive, distributeurs automatiques</li><li>Aroma-Zone, commerces de proximité, restauration</li></ul></div>
         <div class="fc-box rv" style="--c:#d04a86"><h3><svg class="ic"><use href="#i-phone"/></svg>Communication</h3>
           <ul><li><b>Réseaux sociaux en priorité</b> : TikTok, Instagram, BeReal, YouTube</li><li>Influence, affichage et événements campus</li></ul></div>
         <div class="fc-box rv" style="--c:#2f8f4e"><h3><svg class="ic"><use href="#i-leaf"/></svg>Partenaire Aroma-Zone</h3>
@@ -1227,7 +1241,6 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     ['cart', 'Grandes surfaces', 'Hypers et supermarchés (GSA), rayon compotes', '#d04a86', 'Long intégré'],
     ['car', 'Drive', 'Click & collect des grandes enseignes', '#eca21a', 'Long intégré'],
     ['vending', 'Distributeurs automatiques', 'Campus, gares, entreprises, salles de sport', '#2f8f4e', 'Court'],
-    ['globe', 'E-commerce', 'Site Pom’Potes Moments, abonnement possible', '#d04a86', 'Direct'],
     ['leaf', 'Aroma-Zone', 'Site et boutiques du partenaire', '#2f8f4e', 'Court'],
     ['store', 'Commerces de proximité', 'Supérettes, épiceries, magasins de campus', '#eca21a', 'Long'],
     ['fork', 'Restauration hors domicile', 'Restos U, cafétérias, snacking', '#27378a', 'Long']
@@ -1502,7 +1515,16 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
     <div class="tile-card rv" style="--c:${d[3]}">
       <div class="tile-ic">${icon(d[0])}</div><h3>${d[1]}</h3><p>${d[2]}</p>${d[4] ? `<span class="circ c-${d[4].replace(/\s/g, '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')}">${d[4]}</span>` : ''}
     </div>`).join('');
-  $('#distGrid').innerHTML = tiles(DIST);
+  const CIRC = [
+    ['Court', 'un seul intermédiaire', 'court'],
+    ['Long', 'grossiste + détaillant', 'long'],
+    ['Long intégré', 'enseigne avec sa centrale d’achat', 'longintegre']
+  ];
+  $('#distGrid').innerHTML = CIRC.map(c => `
+    <div class="dist-col">
+      <div class="dist-head rv circ c-${c[2]}"><b>${c[0]}</b><span>${c[1]}</span></div>
+      ${tiles(DIST.filter(d => d[4] === c[0]).map(d => d.slice(0, 4)))}
+    </div>`).join('');
   $('#comGrid').innerHTML = tiles(COM);
   $$('#distGrid .rv, #comGrid .rv').forEach((el, i) => el.style.setProperty('--d', (i % 8) + 3));
 
@@ -1522,6 +1544,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
       <div class="pc-rows">
         <div><span>1 gourde · 130 g</span><b>1,10&nbsp;€</b></div>
         <div><span>Boîte de 4 gourdes</span><b>4,40&nbsp;€</b></div>
+        <div><span>Pack de 12 (grand format)</span><b>12,50&nbsp;€</b></div>
       </div>
     </div>`).join('');
   $$('#priceGrid .rv').forEach((el, i) => el.style.setProperty('--d', i + 3));
