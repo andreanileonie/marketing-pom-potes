@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pom'Potes Moments — Comment reconquérir les 18-23 ans ?</title>
+<title>Pom'Potes Moments · version 26/11 09h25</title>
 <meta name="description" content="Projet marketing : comment Pom'Potes peut reconquérir les 18-23 ans avec Pom'Potes Moments.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1546,7 +1546,7 @@ body.lab-open .controls{opacity:.0;pointer-events:none}
       ${tiles(DIST.filter(d => d[4] === c[0]).map(d => d.slice(0, 4)))}
     </div>`).join('');
   $('#comGrid').innerHTML = tiles(COM);
-  $$('#distGrid .dist-col').forEach(col => $$('.rv', col).forEach((el, r) => el.style.setProperty('--d', r + 3)));
+  $$('#distGrid .dist-col').forEach(col => $$('.rv', col).forEach((el, r) => el.style.setProperty('--d', r === 0 ? 3 : 4)));
   $$('#comGrid .rv').forEach((el, i) => el.style.setProperty('--d', (i % 8) + 3));
 
   const CIBLE = [
